@@ -1,0 +1,15 @@
+* {
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#grid-container {
+    display: flex;
+    border: 3px solid black;
+    width: 90vw;
+    min-height: 100vh;
+}
