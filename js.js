@@ -1,5 +1,5 @@
    // create square divs //
-const totalDivs = 16; //change this number to scale the grid//
+let totalDivs = 16; //change this number to scale the grid//
 const divContainer = document.getElementById("grid-container");
 
 
@@ -13,9 +13,19 @@ for (let i=0; i < totalDivs; i++) {
     newDiv.addEventListener('mouseover', () => {
         newDiv.style.backgroundColor = 'yellow';
     });
-
-    newDiv.addEventListener('mouseout', () => {
-        newDiv.style.backgroundColor = '';
-    });
 };
 
+// reset-btn ID to send a popup asking for # of squares per side for the new grid. Once entered, existing grid will be removed, new grid will be generated in the same total space as before for new sketch pad.//
+
+const resetBtn = document.getElementById("reset-btn");
+
+resetBtn.addEventListener('click', () => {
+    //send pop up prompting user to input number//
+
+    
+    //multiply number by itself to make total div number and replace value of totalDivs//
+
+    //remove existing grid//
+
+    //generate new grid with new number of divs//
+})
