@@ -12,6 +12,7 @@ body {
 
 #grid-container {
     display: flex;
+    flex: auto;
     flex-wrap: wrap;
     border: 3px solid black;
     width: 90vw;

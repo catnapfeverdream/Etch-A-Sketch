@@ -21,8 +21,19 @@ const resetBtn = document.getElementById("reset-btn");
 
 resetBtn.addEventListener('click', () => {
     //send pop up prompting user to input number//
+    function resetPrompt() {
+        let text;
+        let number = prompt('how many squares per side, my liege?', '25');
+        if (number == null || number =='' || number > 100 === true) {
+            text = 'err';
+        } else {
+          let totalDivs = number;  
+        }
+    }
 
-    
+    //set user input to max of 100 //
+
+
     //multiply number by itself to make total div number and replace value of totalDivs//
 
     //remove existing grid//
