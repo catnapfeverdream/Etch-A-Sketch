@@ -1,5 +1,6 @@
 let totalDivs = 16;
 const divContainer = document.getElementById('grid-container');
+const newColor = ['#000000', '#e7e784', '#4fa0a0']
 
 function createGrid(numDivs) {
     divContainer.innerHTML = '';
@@ -19,28 +20,31 @@ function createGrid(numDivs) {
 
         newDiv.style.width = `${boxSizePercentage}%`;
         newDiv.style.height = `${boxSizePercentage}%`;
-        
-        // hover effect so grid divs change color when the mouse passes over them //
-
-        newDiv.forEach((item) => {
-            // Basic Color: newDiv.style.backgroundColor = '#000000';//
-            //progressive darkening effect where each interaction darkens the square by 10%. achieve full color by 10 overs.//
-            item.addEventListener('mouseover', () => {
-                let currentOpacity = parseFloat(item.style.opacity) || 0;
-                
-                if (currentOpacity <1) {
-                    item.style.opacity = (currentOpacity + 0.1).toFixed(1);
-            }
-            })
-            
-            });
-            //randomize the squares' RGB values//
     };
+        
+        //hover effect so grid divs change color when the mouse passes over them//
+        divContainer.addEventListener('mouseover', (event) => {
+            const item = event.target;
+            // Basic Color effect - removed for alternates: newDiv.style.backgroundColor = '#000000';//
+
+            if (event.target.classList.contains('grid-items')) {
+                if (!item.style.backgroundColor) {
+                    const randomIndex = Math.floor(Math.random() * newColor.length);
+                    item.style.backgroundColor = newColor[randomIndex];
+                }
+
+                //progressive darkening effect where each interaction darkens the square by 10%//
+                let currentOpacity = parseFloat(event.target.style.opacity) || 0;
+                if (currentOpacity <1) {
+                    event.target.style.opacity = (currentOpacity + 0.1).toFixed(1);
+                }
+            }
+        });    
 }
 
 createGrid(totalDivs);
 
-// reset-btn ID to send a popup asking for # of squares per side for the new grid. Once entered, existing grid will be removed, new grid will be generated in the same total space as before for new sketch pad.//
+//reset btn//
 
 const resetBtn = document.getElementById('reset-btn');
 
@@ -54,9 +58,7 @@ function resetPrompt() {
     if (isNaN(number) || number <= 0 || number > 100) {
            alert('errrrrrr');
     } else {
-    //multiply number by itself to make total div number and replace value of totalDivs//
     totalDivs = number * number;
-    //generate new grid with new number of divs//
     createGrid(totalDivs);
     }
 }

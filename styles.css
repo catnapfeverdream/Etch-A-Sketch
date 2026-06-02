@@ -7,20 +7,24 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0;
-    padding: 20px;
+    background-color: #608099;
 }
 
 #grid-container {
     display: flex;
     flex-wrap: wrap;
     border: 3px solid black;
-    width: 90vw;
-    height: 90vh;
+    width: 90vmin;
+    height: 90vmin;
     background-color: lightgrey;
 }
 
 .grid-items {
     box-sizing: border-box;
-    border: 1px solid black;
-    background-color: blue;
+    border: 1px solid #000000;
+    background-color: rgb(95 95 95 / 0%);
+}
+
+button {
+    margin: 10px;
 }
